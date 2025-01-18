@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Checkout Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button i {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .order-summary {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .form-control,
+        .form-select {
+            height: 38px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .btn-block {
+            width: 100%;
+            background-color: #009688;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-block:hover {
+            background-color: #00796b;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        /* Styles for size options */
+        .size-option {
+            display: inline-block;
+            background-color: #f1f1f1;
+            padding: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .size-option:hover {
+            background-color: #009688;
+            color: white;
+        }
+
+        .selected {
+            background-color: #009688;
+            color: white;
+        }
+
+        /* Adjusted styles for mobile view */
+        @media (max-width: 768px) {
+            .order-summary {
+                margin-top: 30px;
+            }
+
+            .back-button {
+                top: 15px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a class="back-button" onclick="goBack()" title="Go Back" style="background-color: blue; color: white;">
+        ←
+    </a>
+
+    <div class="container">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-8">
+                <div class="form-section">
+                    <h5>Choose Product Options</h5>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="productName" class="form-label">Product Name</label>
+                                <select class="form-select" id="productName">
+                                    <option selected>Halen Helper Diaper</option>
+                                    <option>Babycharm Diaper</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="size" class="form-label">Size</label>
+                                <div id="sizeOptions">
+                                    <span class="size-option">S</span>
+                                    <span class="size-option">M</span>
+                                    <span class="size-option">L</span>
+                                    <span class="size-option">XL</span>
+                                    <span class="size-option">2XL</span>
+                                    <span class="size-option">3XL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" class="form-control" id="quantity" value="1" min="1">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-section">
+                    <h5>Set Delivery Address</h5>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="number" class="form-label">Contact Number</label>
+                                <input type="text" class="form-control" id="number" placeholder="Enter your contact number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="province" class="form-label">Province</label>
+                                <select class="form-select" id="province">
+                                    <option selected>Choose Province</option>
+                                    <option>Province 1</option>
+                                    <option>Province 2</option>
+                                    <option>Bagmati</option>
+                                    <option>Gandaki</option>
+                                    <option>Lumbini</option>
+                                    <option>Karnali</option>
+                                    <option>Sudurpashchim</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="district" class="form-label">District</label>
+                                <input type="text" class="form-control" id="district" placeholder="Enter your district">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <button class="btn btn-block mt-3" style="background-color: #0056b3;">Save Detail</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="col-md-4">
+                <div class="order-summary">
+                    <h5>Order Summary</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-0">Items Total</p>
+                        <p class="mb-0">Rs. 1,770</p>
+                    </div>
+                
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <h5>Total:</h5>
+                        <h5 class="text-danger">Rs. 1,935</h5>
+                    </div>
+                    <p class="text-muted">All taxes included</p>
+                    <hr>
+                
+                    <h5>Payment Mode</h5>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="paymentMode" id="accountQR" checked>
+                        <label class="form-check-label" for="accountQR">Bank Account (QR)</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="paymentMode" id="esewaQR">
+                        <label class="form-check-label" for="esewaQR">E-Sewa (QR)</label>
+                    </div>
+                
+                    <!-- QR Images -->
+                    <div id="accountQRDetails" class="payment-details">
+                        <p>Scan the bank account QR code:</p>
+                        <img src="img/qr.png" alt="Account QR Code" class="qr-image">
+                        <a href="img/qr.png" download="E-Sewa_QR" class="download-icon" title="Download QR Code">
+                            <i class="fas fa-download"></i>
+                        </a>
+                        <p><strong>Account Number:</strong> 123456789</p>
+                        <p><strong>Account Name:</strong> John Doe</p>
+                    </div>
+                
+                    <div id="esewaQRDetails" class="payment-details" style="display:none;">
+                        <p>Scan the E-Sewa QR code:</p>
+                        <img src="img/qr.png" alt="E-Sewa QR Code" class="qr-image">
+                        <!-- Download QR Button -->
+                        <a href="img/qr.png" download="E-Sewa_QR" class="download-icon" title="Download QR Code">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                <hr>
+                    <!-- Payment Slip Upload -->
+                    <div class="upload-proof mt-3">
+                        <h5>Upload Payment Proof</h5>
+                        <input type="file" class="form-control-file" id="paymentProof" accept="image/*">
+                        <small class="text-muted">Accepted formats: JPG, PNG, PDF (Max 5MB)</small>
+                    </div>
+                
+                    <!-- Confirm Button -->
+                    <div class="text-center">
+                        <button class="btn btn-block mt-3" style="background-color: #0056b3; color: white;">Confirm Order</button>
+                    </div>
+                </div>
+                
+                <!-- Include Font Awesome -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                
+                <style>
+                    .qr-image {
+                        width: 200px;
+                        height: auto;
+                        margin-bottom: 10px;
+                    }
+                
+                    .download-icon {
+                        font-size: 16px;
+                        color: #007bff;
+                        text-decoration: none;
+                        margin-left: 10px;
+                        vertical-align: middle;
+                    }
+                
+                    .download-icon:hover {
+                        color: #0056b3;
+                    }
+                
+                    .upload-proof {
+                        margin-top: 15px;
+                    }
+                
+                    .upload-proof input {
+                        margin-top: 10px;
+                    }
+                </style>
+                
+                <script>
+
+document.querySelectorAll('.size-option').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.size-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                item.classList.add('selected');
+            });
+        });
+
+
+                    // Toggle QR payment options
+                    document.getElementById('accountQR').addEventListener('click', function () {
+                        document.getElementById('accountQRDetails').style.display = 'block';
+                        document.getElementById('esewaQRDetails').style.display = 'none';
+                    });
+                
+                    document.getElementById('esewaQR').addEventListener('click', function () {
+                        document.getElementById('accountQRDetails').style.display = 'none';
+                        document.getElementById('esewaQRDetails').style.display = 'block';
+                    });
+
+
+                    
+                </script>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+                </body>
+
+</html>

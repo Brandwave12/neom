@@ -1,0 +1,1167 @@
+<html>
+ <head>
+  <title>
+   NEOM
+  </title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+  /* Navbar link styles */
+.navbar-nav .nav-link {
+    color: #333; /* Dark color for better readability */
+    font-weight: 700; /* Make links bold */
+    font-size: 1rem; /* Set a consistent font size */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Smooth hover and size transitions */
+}
+
+/* Hover effect for navbar links */
+.navbar-nav .nav-link:hover {
+    color: blue; /* Slightly darker blue for hover state */
+}
+
+/* Navbar brand logo styling */
+.navbar-brand img {
+ 
+    height: 60px; /* Default logo height */
+    transition: height 0.3s ease; /* Smooth resizing on interactions */
+}
+
+/* Contact button styling */
+.contact-btn {
+    
+    border: 1px solid blue; /* Update to darker blue for better contrast */
+    border-radius: 10px; /* Slightly rounder corners */
+    padding: 2px 20px; /* Balanced look */
+    font-weight: 600; /* Make text bold */
+    color: white; /* Match border color */
+    background-color: transparent; /* Transparent background */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+
+/* Navbar fixed at the top */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Ensure navbar appears above other elements */
+    transition: all 0.3s ease; /* Smooth transition for height and background changes */
+}
+
+/* Initial navbar state */
+.navbar-expanded {
+    height: 50px; /* Default height */
+    background-color: #f8f9fa; /* Light background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Shrinked navbar state on scroll */
+.navbar {
+    height: 50px; /* Smaller height */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Stronger shadow for focus */
+}
+       
+    .body-footer {
+             background-color: #000c1d;
+             color: #fffefe;
+             font-family: Arial, sans-serif;
+         }
+         .footer {
+             padding: 40px 0;
+         }
+         .footer h5 {
+             font-weight: bold;
+             color: #f1dede;
+         }
+         .footer a {
+             color: #e7d7d7;
+             text-decoration: none;
+         }
+         .footer a:hover {
+             text-decoration: underline;
+         }
+         .footer .social-icons a {
+             color: #4a4a4a;
+             margin-right: 15px;
+             font-size: 20px;
+         }
+         .footer .social-icons a:hover {
+             color: #007bff;
+         }
+         .footer .logo img {
+             max-width: 150px;
+         }
+   </style>
+
+<style>
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #009688;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #009688;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+.nav-item{
+    position: relative;
+}
+
+</style>
+    
+
+ </head>
+ <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo and Company Name Inline -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="image/lo.png" alt="Logo" style="width: 40px; height: auto; margin-right: 10px;">
+                <span style="display: inline-block; text-align: left; vertical-align: top; color: blue; font-weight: bold; ">
+                    NEOM World<br>
+                    <span style="display: inline-block; vertical-align: bottom; margin-top:-10px; color: blue; font-weight: bold;">Trade Pvt. Ltd.</span>
+                </span>
+            </a>
+    
+            <!-- Navbar Toggler for mobile view -->
+            <button class="navbar-toggler" type="button" style="border: none;" onclick="toggleSidebar()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar links for desktop (horizontal) -->
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 100px;">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link" style="color: blue;"> Home</a></li>
+                    <li class="nav-item"><a href="aboutus.html" class="nav-link" style="color: blue;"> About Us</a></li>
+                    <li class="nav-item"><a href="ourproduct.html" class="nav-link" style="color: blue;"> Our Products</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="strategy.html"  style="color: blue;" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Sustainability
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li ><a href="forplanet.html" class="dropdown-item" style="color: blue;">For Planet</a></li>
+                            <li ><a href="forcommunity.html" class="dropdown-item" style="color: blue;">For Community</a></li>
+                            <li ><a href="forpeople.html" class="dropdown-item" style="color: blue;">For People</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="small-nav-link" >
+                    
+                    <li class="nav-item" ><a href="careers.html" style="color: blue;" class="nav-link"> Careers</a></li>
+                    <li class="nav-item" ><a href="notice.html" style="color: blue;" class="nav-link"> Notice</a></li>
+                    <li class="nav-item" ><a href="contactus.html" style="color: blue;" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            </div>
+
+            
+    
+            <!-- "Order Now" Button -->
+            <a class="nav-link contact-btn order_now_btn" href="payoutform.html" >
+                <i class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Order Now
+            </a>
+
+            <style>
+                .order_now_btn{
+                background-color: blue;
+                 color:white; border-radius: 
+                 0px; width: 200px; 
+                 height: 50px; 
+                 padding-top: 10px;
+                }
+            </style>
+    
+            <!-- Video in navbar, visible only on desktop -->
+            <video autoplay loop muted playsinline class="navbar-video" style="width: 200px; height: auto;">
+                <source src="video/ontext.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </nav>
+    
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="aboutus.html"><i class="fa fa-info-circle"></i> About Us</a></li>
+            <li><a href="ourproduct.html"><i class="fa fa-cogs"></i> Our Products</a></li>
+            <li class="dropdown">
+                <a href="distributor.html" class="dropdown-toggle"><i class="fa fa-users"></i> Distributor</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Partner with Us</a></li>
+                    <li><a href="#">Distribution Process</a></li>
+                </ul>
+            </li>
+            <li><a href="suns.html"><i class="fa fa-leaf"></i> Sustainability</a></li>
+            <li><a href="careers.html"><i class="fa fa-briefcase"></i> Careers</a></li>
+            <li><a href="notice.html"><i class="fa fa-bell"></i> Notice</a></li>
+            <li><a href="contactus.html"><i class="fa fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+    
+    <style>
+    /* Sidebar styles */
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, #111, #002c1fc9);
+        overflow-x: hidden;
+        transition: 0.3s ease;
+        padding-top: 60px;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Sidebar links */
+    .sidebar-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Sidebar link items */
+    .sidebar-links li {
+        padding: 10px 15px;
+        text-align: left;
+    }
+    
+    /* Sidebar link anchor */
+    .sidebar-links a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        font-size: 18px;
+        padding: 10px 0;
+        transition: background-color 0.3s ease;
+    }
+    
+    /* Sidebar link hover effect */
+    .sidebar-links a:hover {
+        background-color: #575757;
+        padding-left: 15px;
+    }
+    
+    /* Sidebar when active (expanded) */
+    .sidebar.active {
+        width: 250px;
+    }
+    
+    /* Dropdown menu */
+    .sidebar .dropdown-menu {
+        display: none;
+        padding-left: 20px;
+        background-color: #444;
+    }
+    
+    .sidebar .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    
+    /* Toggler button styles */
+    .navbar-toggler {
+        position: relative;
+        z-index: 1050;
+    }
+    
+    /* Responsive styling for mobile devices */
+    @media (max-width: 768px) {
+        .navbar-nav {
+            display: none; /* Hide navbar items in mobile */
+        }
+    
+        .sidebar {
+            width: 0;
+        }
+    
+        .sidebar.active {
+            width: 80%; /* Expand sidebar to 80% of screen width */
+        }
+    
+        .navbar-video {
+            display: none;
+        }
+    
+        .navbar-brand img {
+            height: 40px;
+            margin-left: 1px;
+            padding-bottom: 5px;
+        }
+        .order_now_btn{
+            height: 30px;
+        }
+    }
+    
+    /* Ensure the sidebar works properly on larger screens */
+    @media (min-width: 769px) {
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    
+        .navbar-nav .nav-item {
+            display: inline-block;
+        }
+    
+        .navbar-nav .nav-item .nav-link {
+            color: #009688;
+        }
+    }
+    
+    /* Ensure smooth transition for the sidebar */
+    .sidebar.active {
+        width: 250px;
+        transition: width 0.3s ease-in-out;
+    }
+
+    /* Style for small-nav-link to make it horizontal and small */
+.small-nav-link {
+    list-style-type: none;  /* Remove bullet points */
+    padding: 0;             /* Remove padding */
+   margin-left: 30px;      /* Remove margin */
+    display: flex;          /* Display the list items horizontally */
+    gap: 15px;    
+    margin-top: 10px;         /* Space between the items */
+    
+}
+
+.small-nav-link .nav-item {
+    font-size: 14px;        /* Smaller font size for the items */
+}
+
+.small-nav-link .nav-link {
+    color: #009688;         /* Change text color */
+    text-decoration: none;  /* Remove underline */
+    font-weight: normal;    /* Make font weight normal */
+    transition: color 0.3s ease; /* Smooth transition for color change on hover */
+}
+
+.small-nav-link .nav-link:hover {
+    color: #005f47;         /* Change text color on hover */
+}
+
+
+
+    </style>
+
+    
+    
+    <script>
+    // Toggle sidebar visibility
+    function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active'); // Toggle the active class to show or hide the sidebar
+    }
+    </script>
+
+
+
+
+<style>
+    
+    .innovation-section {
+       padding: 50px;
+       margin: auto;
+    }
+    .innovation-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    .innovation-section p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .innovation-section a {
+        text-decoration: none;
+    }
+    .innovation-section .btn-outline-primary {
+        border: 2px solid #0d6efd;
+        padding: 10px 20px;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+    }
+    .innovation-section .btn-outline-primary i {
+        margin-left: 10px;
+    }
+    .video-container {
+        margin-bottom: 20px;
+    }
+</style>
+
+<style>
+    
+         .content {
+             padding: 50px;
+         }
+         .title {
+             font-size: 2.5rem;
+             font-weight: bold;
+         }
+         .description {
+             font-size: 1rem;
+             margin-top: 20px;
+         }
+         .image-container {
+             margin-top: 20px;
+         }
+         .btn-custom {
+             margin-top: 40px;
+             padding: 10px 20px;
+             font-size: 1rem;
+             border-radius: 5px;
+         }
+   </style>
+
+<style>
+      
+    .value-card {
+        border: 1px solid #d3e0d3;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 10px;
+        background-color: #fff;
+    }
+    .value-card h5 {
+        margin-top: 15px;
+    }
+    .value-card p {
+        margin-top: 10px;
+    }
+    .value-card a {
+        color: #007bff;
+        text-decoration: underline;
+    }
+    .btn-custom {
+        background-color: #f0f0f0;
+        border: 1px solid #d3e0d3;
+        color: #000;
+    }
+</style>
+
+<style>
+.intro-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.intro-section img {
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.description h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.description p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.executive-management img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    margin-bottom: 10px;
+}
+
+.executive-management h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.executive-management p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+</style>
+
+
+
+    
+<div class="content-video" style="margin-top: 75px; " >
+    <div class="video-container">
+        <video src="video/ontext.mp4" alt="Promo Video" class="promo-media" autoplay muted loop>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="order-button-type" style="background:linear-gradient(135deg, #009688, #00796b); height: 74px;">
+        <button style="border: none;">Order Now</button>
+    </div>
+</div>
+
+
+<style>
+    /* Default styles for the content-video section */
+    .content-video {
+        display: flex;
+        align-items: center; /* Vertically align content */
+        justify-content: space-between; /* Space out video and button */
+        width: 100%;
+        height: auto; /* Default height */
+    }
+    
+    /* Video Container: 70% width */
+    .video-container {
+        width: 70%; /* Video takes 70% width */
+        display: flex;
+        justify-content: center; /* Center the video */
+    }
+    
+    /* Video settings */
+    .promo-media {
+        width: 100%; /* Make sure the video fills the container */
+        height: 100%; /* Ensure it fits within the container */
+        object-fit: cover; /* Ensure the video covers the container without distortion */
+    }
+    
+    /* Button container: 30% width */
+    .order-button-type {
+        width: 30%; /* Button takes 30% width */
+        text-align: center;
+        padding: 10px; /* Optional padding for button */
+        display: flex;
+        justify-content: center; /* Center the button horizontally */
+        align-items: center; /* Center the button vertically */
+        height: 100%; /* Ensure it takes the full height of the content-video container */
+    }
+    
+    /* Button styling */
+    .order-button-type button {
+        background-color: #009688;
+        color: white;
+        font-size: 1.2rem;
+        padding: 20px 30px;
+        border: none;
+       
+        cursor: pointer;
+        height: 100%; /* Ensure the button takes the full height of its parent */
+    }
+    
+    /* Hide content-video section in desktop mode */
+    @media (min-width: 1024px) {
+        .content-video {
+            display: none; /* Hide the content in desktop view */
+        }
+    }
+    
+    /* Mobile view: Display content-video section */
+    @media (max-width: 768px) {
+        .navbar {
+            height: 60px;
+        }
+    
+        .order_now_btn {
+            display: none;
+        }
+    
+        .content-video {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 50px; /* Set the height equal to the navbar height */
+            margin-top: 60px;
+        }
+    
+        /* Adjust the video container width for mobile */
+        .video-container {
+            width: 70%; /* Video takes 70% width */
+        }
+    
+        .order-button-type {
+            width: 30%; /* Button takes 30% width */
+            height: 100%; /* Ensure button container height is consistent with .content-video */
+        }
+    
+        /* Ensure video fits inside its container */
+        .promo-media {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    
+       
+    }
+    
+    </style>
+
+    <style>
+        /* Mobile view: Adjust padding for the button */
+@media (max-width: 768px) {
+    .order-button-type button {
+        font-size: 14px; /* Slightly larger font size for better readability */
+        padding: 12px 20px; /* Adjust padding to make the button more touch-friendly */
+        border-radius: 50px; /* Rounded corners for a smooth button appearance */
+        height: 100%; /* Ensure button always takes the height of its parent */
+        background: linear-gradient(135deg, #009688, #00796b); /* Gradient background for visual appeal */
+        color: white; /* White text for contrast */
+        border: none; /* No border */
+        text-transform: uppercase; /* Make the text bold and capitalized */
+        font-weight: bold; /* Bold text */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+    }
+
+    /* Hover effect for the button */
+    .order-button-type button:hover {
+        background-color: #00796b; /* Darker color on hover */
+        transform: scale(1.05); /* Slight scale effect on hover */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+    }
+
+    /* Focus effect for the button */
+    .order-button-type button:focus {
+        outline: none; /* Remove outline */
+        box-shadow: 0 0 0 2px #009688; /* Add shadow when focused */
+    }
+}
+
+    </style>
+    
+
+<div class="main-content" style="margin-top: 50px; ">
+    <style>
+              
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+        }
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            object-fit: cover;
+        }
+        .image-overlay h1 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .image-overlay h2 {
+            font-size: 28px;
+            color: #ccc;
+        }
+        .image-overlay p {
+            font-size: 16px;
+            color: #ddd;
+            margin-top: 10px;
+        }
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    
+    <div class="container-fluid image-container">
+        <img 
+            src="image/about.png" 
+            alt="A child holding a shopping basket with groceries in a store" 
+        >
+        <div class="image-overlay">
+            <div class="content">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                       
+                        <li class="breadcrumb-item"><a href="#" style="font-size: 60px; color:white;">About Us</a></li>
+                       
+                    </ol>
+                </nav>
+               
+            </div>
+        </div>
+    </div>
+    
+       <style>
+        @media (max-width: 768px) {
+      .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    
+      h1 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    
+      p {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+    
+      .img-fluid {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px; /* Adjusted for smaller screens */
+      }
+    }
+    
+       </style>
+       
+      <div class="container content">
+        <div class="row align-items-center">
+         <div class="col-md-6">
+          <h1>
+          NEOM, is for world Trade.
+          </h1>
+          <p style="text-align: justify;">
+            Neom World Trade Pvt. Ltd., operating under the Pathivara Group, is the authorized distributor of Ontex in Nepal. With a strong presence across all seven provinces of the country, Neom specializes in distributing high-quality baby care and cosmetic products, with adult care solutions set to launch soon. Committed to excellence, Neom ensures that every product meets the highest standards of quality and hygiene, making it a trusted name for consumers nationwide. Its extensive distribution network and dedication to customer satisfaction have solidified its position as a leading player in the market.
+          </p>
+    
+    
+         
+         </div>
+         <div class="col-md-6">
+            <img 
+                alt="A mother holding a baby and another woman smiling at them in a cozy kitchen setting" 
+                class="img-fluid" 
+               
+                src="https://storage.googleapis.com/a1aa/image/4sPN11WE71pYI108CqqAbqtev6hmXjBI3feLbAX6BOhbETynA.jpg" 
+                
+                style="border-top-left-radius: 40px;  height:300px; width: 600px;"
+            />
+        </div>
+        
+        </div>
+       
+       </div>
+    
+    
+    
+     
+    
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro-section d-flex align-items-center">
+                    <img 
+                        alt="Modern office buildings with glass facades" 
+                        class="img-fluid" 
+                        src="image/pathivara.png" 
+                        style="flex: 1; max-width: 50%; height: auto; border-radius: 5px; border-top-right-radius: 40px; "
+                    />
+                    <div class="description" style="flex: 1; padding-left: 20px;">
+                        
+                        <h1> Pathivara Groups: Leading with Vision and Purpose</h1>
+                       
+
+                     <p style="text-align: justify;">   Pathivara Groups is a dynamic and visionary Nepali company driven by an entrepreneurial spirit and a commitment to making a meaningful impact on society. Under its umbrella, the group operates diverse businesses, including Hilltone Restaurant and Bar, Pathivara Hardware and Suppliers, Neom World Trade Pvt. Ltd., and ventures in AI and innovation.
+                        
+                        Beyond business, Pathivara Groups is deeply dedicated to the betterment of people, communities, and the environment. The organization actively participates in providing education to underprivileged children, promoting tree plantation drives, and combating social injustices in Nepalese society, such as the eradication of harmful practices like Chhaupadi Pratha.
+                    </p>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary btn-custom" style="background-color: blue; color: white;" onclick="window.location.href='pathivara.html';">
+                                Explore Pathivara World Trade
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            
+                           </div>
+                    </div>
+    
+                    
+                       
+                       
+    
+                </div>
+               
+            </div>
+           
+        </div>
+    
+    
+    
+        <style>
+       
+            .team-section {
+                text-align: center;
+                padding: 50px 0;
+            }
+            .team-section h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+            .team-section p {
+                font-size: 1rem;
+                color: #666;
+                margin-bottom: 40px;
+            }
+            .team-member {
+                margin-bottom: 30px;
+            }
+            .team-member img {
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+            }
+            .team-member h4 {
+                font-size: 1.25rem;
+                margin-top: 15px;
+                color: blue;
+            }
+            .team-member span {
+                display: block;
+                font-size: 1rem;
+                color: #888;
+                margin-bottom: 10px;
+            }
+            .team-member p {
+                font-size: 0.875rem;
+                color: #666;
+            }
+      </style>
+    
+      <section class="team-section">
+       <div class="container">
+        <h2>
+         Member of Board
+        </h2>
+        <p>  
+            Meet our esteemed Board Members, whose expertise and leadership drive our vision forward, ensuring excellence and innovation at every step.  
+   </p>  
+        <div class="row">
+         <div class="col-md-3 col-sm-6 team-member">
+          <img alt="Portrait of a man wearing sunglasses and a black t-shirt" height="150" src="img/avtar.jpeg" loading="lazy" width="150"/>
+          <h4>
+           Director Name
+          </h4>
+          <span>
+           Group Director
+          </span>
+          <p>
+          Pathivara Groups
+          </p>
+         </div>
+         <div class="col-md-3 col-sm-6 team-member">
+          <img alt="Portrait of a woman with long blonde hair wearing a white top" height="150" src="image/mam.jpg" width="150"/>
+          <h4>
+           Neesha Sedhai
+          </h4>
+          <span>
+           Chairman 
+          </span>
+          <p>
+           NEOM World Trade Pvt. Ltd.
+          </p>
+         </div>
+         <div class="col-md-3 col-sm-6 team-member">
+          <img alt="Portrait of a man with glasses wearing a dark green polo shirt" height="150" src="img/chamesh.jpg" width="150"/>
+          <h4>
+           Chamesh Raj Dhakal
+          </h4>
+          <span>
+           Chairman 
+          </span>
+          <p>
+           
+          Hilltone Restaurant and Bar
+          </p>
+         </div>
+         <div class="col-md-3 col-sm-6 team-member">
+          <img alt="Portrait of a woman with long blonde hair wearing a beanie and scarf" height="150" src="img/salina.jpg" width="150"/>
+          <h4>
+           Salina Poudel
+          </h4>
+          <span>
+          Chairman 
+          </span>
+          <p>
+           Pathivhara Hardware and Suppliers
+          </p>
+         </div>
+        </div>
+       </div>
+      </section>
+    
+    
+    
+    
+    
+        </div>
+    
+        <style>
+            /* General Styling for the row */
+    .executive-management .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    /* Individual Executive Member Container */
+    .executive-member {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    /* Styling the circular image */
+    .executive-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%; /* Makes the image circular */
+        object-fit: cover;  /* Ensures the image covers the circle */
+        border: 3px solid #009688;  /* Optional border */
+    }
+    
+    /* Styling the executive info container */
+    .executive-info {
+        margin-top: 10px;
+    }
+    
+    /* Member Name Styling */
+    .executive-info h5 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    /* Job Title Styling */
+    .executive-info p {
+        font-size: 1rem;
+        color: #555;
+    }
+    
+    /* Responsive Styling for smaller screens */
+    @media (max-width: 767px) {
+        .executive-img {
+            width: 100px;  /* Reduce image size on smaller screens */
+            height: 100px;
+        }
+    
+        .executive-info h5 {
+            font-size: 1rem;
+        }
+    
+        .executive-info p {
+            font-size: 0.9rem;
+        }
+    }
+    
+        </style>
+    
+    <div class="container text-center mt-5">
+        <h2>Our Vision, Mission & Strategy</h2>
+        <p>These three key elements define the core of our company, guiding us in our journey towards excellence and success.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-3 value-card">
+                <i class="fas fa-eye fa-2x" style="color: blue"></i>
+                <h5>Vision</h5>
+                <p style="text-align: justify;">Our vision is to lead innovation, provide exceptional products, and create positive change in communities globally. We strive to be the top choice for customers by consistently delivering high-quality solutions that improve lives and contribute to a sustainable future.</p>
+            </div>
+            <div class="col-md-3 value-card">
+                <i class="fas fa-bullseye fa-2x" style="color: blue;"></i>
+                <h5>Mission</h5>
+                <p style="text-align: justify;">Our mission is to enrich lives by offering reliable, high-quality products while focusing on environmental sustainability and community well-being. We aim to foster long-term relationships with our customers and partners by staying true to our values of integrity, accountability, and teamwork.</p>
+            </div>
+            <div class="col-md-3 value-card">
+                <i class="fas fa-cogs fa-2x" style="color: blue;"></i>
+                <h5>Strategy</h5>
+                <p style="text-align: justify;">Our strategy revolves around constant innovation, operational excellence, and expanding our global presence. We are committed to driving growth through strategic partnerships, a customer-first approach, and ensuring that sustainability is embedded in all our business practices.</p>
+            </div>
+        </div>
+        </div>
+
+    
+
+
+
+</div>
+
+
+
+
+<div class="body-footer" style=" margin-top: 20px; background-color: blue; "  >
+    <div class="container footer">
+     <div class="row">
+      <div class="col-md-3">
+       
+       <p style="text-align: justify;">
+        Neom is a leading international personal hygiene group. We engineer and make high quality products for Baby Care, Feminine Care and Adult Care and are the partner of choice for retailers and healthcare providers.
+       </p>
+       <div class="social-icons">
+        
+        <a href="#">
+         <i class="fab fa-facebook">
+         </i>
+        </a>
+        <a href="#">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+        <a href="#">
+         <i class="fas fa-envelope">
+         </i>
+        </a>
+       </div>
+     
+      </div>
+      <div class="col-md-2">
+       <h5>
+       Quick Link
+       </h5>
+       <ul class="list-unstyled">
+        <li>
+         <a href="#">
+          About US
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Products
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Home
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="col-md-3">
+     
+       <ul class="list-unstyled">
+        <h5>
+         Our Brands
+        </h5>
+        <li>
+         <a href="#">
+          Helen Helper
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Baby Charm
+         </a>
+        </li>
+       </ul>
+      </div>
+      <div class="col-md-2">
+       <h5>
+         Updates
+         </h5>
+       <ul class="list-unstyled">
+        <li>
+         <a href="#">
+          Contact
+         </a>
+        </li>
+        <li>
+         <a href="#">
+          Notice
+         </a>
+        </li>
+      
+       
+       </ul>
+      </div>
+     
+     </div>
+    </div>
+ </div>
+
+
+ 
+  <script>
+         window.addEventListener('scroll', () => {
+         const navbar = document.querySelector('.navbar');
+         if (window.scrollY > 50) {
+             navbar.classList.add('navbar-shrink');
+         } else {
+             navbar.classList.remove('navbar-shrink');
+         }
+     });
+     </script>
+     
+     <script>
+         // Add functionality for the scroll-to-top button
+     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+     
+     window.addEventListener('scroll', () => {
+         if (window.scrollY > 300) {
+             scrollToTopBtn.classList.add('show');
+         } else {
+             scrollToTopBtn.classList.remove('show');
+         }
+     });
+     
+     scrollToTopBtn.addEventListener('click', () => {
+         window.scrollTo({
+             top: 0,
+             behavior: 'smooth',
+         });
+     });
+     
+     </script>
+      <!-- Bootstrap JS Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+     
+     
+     
+         <script 
+             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Kq8x0B2M7z44O/tpoQbC6bb2xkzj" 
+             crossorigin="anonymous">
+         </script>
+     
+     
+
+
+
+
+
+
+ </body>
+</html>
